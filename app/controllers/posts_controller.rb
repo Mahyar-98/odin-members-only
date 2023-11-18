@@ -9,11 +9,13 @@ class PostsController < ApplicationController
     end
 
     def create
+        @post = current_user.posts.build(allowed_params)
     end
 
-    
+
     private
 
     def allowed_params
+        params.require(:post).permit(:title, :body, :user_id)
     end
 end
