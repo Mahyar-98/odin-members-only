@@ -1,4 +1,9 @@
 <% @posts.each do |post| %>
+  <% if user_signed_in? %>
+    <%= post.user.email %>
+  <% end %>
   <%= post.title %>
+  <span>:</span>
   <%= post.body %>
+  <br>
 <% end %>
